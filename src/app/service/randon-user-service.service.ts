@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment.development';
-import { RandonUserResponse } from '../interface/RandonUserInterface';
+import { RandomUserType, RandonUserResponse } from '../interface/RandonUserInterface';
+import { RandomUserMapper } from '../mapper/RandonUserMapper';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,7 @@ import { RandonUserResponse } from '../interface/RandonUserInterface';
 export class RandonUserServiceService {
 
   private http = inject(HttpClient)
+  ListadoUsers = signal<RandomUserType[]>([])
 
   constructor() {
     this.CargarUsersFromWeb()
@@ -23,7 +25,8 @@ export class RandonUserServiceService {
                         nat:'es'
                     }}
                   ).subscribe((resp)=>{
-                    console.log(resp.results)
+                    const ArrayUSers = RandomUserMapper.ResponseUserConvert(resp.results)
+                    this.ListadoUsers.set(ArrayUSers)
                   })
    }
 

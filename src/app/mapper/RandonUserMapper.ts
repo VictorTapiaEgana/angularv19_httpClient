@@ -1,11 +1,11 @@
 import { RandonUserResponse, RandomUserType, Data } from './../interface/RandonUserInterface';
 export class RandomUserMapper{
 
-  ResponseMapper(item:Data):RandomUserType{
+  static ResponseMapper(item:Data):RandomUserType{
 
     return{
         id:item.login.uuid,
-        nombre:`${item.name.first}  ${item.name.last}`,
+        nombre:`${item.name.title}. ${item.name.first}  ${item.name.last}`,
         genero:item.gender,
         email:item.email,
         telefono:item.cell,
@@ -19,10 +19,9 @@ export class RandomUserMapper{
 
   }
 
-  ResponseUserConvert(userlist:Data[]):RandomUserType[]{
-    return(
-        userlist.map((item)=>this.ResponseMapper(item))
-    )
+  static ResponseUserConvert(userlist:Data[]):RandomUserType[]{
+    return userlist.map(this.ResponseMapper)
+
   }
 
 }

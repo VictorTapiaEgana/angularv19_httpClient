@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { RandomUserType } from '../../interface/RandonUserInterface';
 
 @Component({
   selector: 'app-user-card',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './UserCard.component.css',
 })
 
-export class UserCardComponent { }
+export class UserCardComponent {
+  usuarios = input.required<RandomUserType[]>()
+}
