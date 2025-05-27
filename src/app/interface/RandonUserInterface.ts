@@ -1,3 +1,18 @@
+export interface RandomUserType{
+  id:string;
+  nombre:string;
+  genero:string;
+  email:string;
+  telefono:string;
+  imagen:string;
+  direccion:string;
+  ciudad:string;
+  pais:string;
+  latitud:string;
+  longitud:string;
+}
+
+
 export interface RandonUserResponse {
   results: Data[];
   info:    Info;
