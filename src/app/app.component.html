@@ -3,7 +3,8 @@
 <div class="mx-3">
   <app-paginacion/>
 
-  <app-user-card [usuarios]="RandonUserService.ListadoUsers()"/>
+  <app-user-card [usuarios]="RandonUserService.ListadoUsers()"
+                 [CargandoDatos]="RandonUserService.cargandoSignal()"/>
 
 
 </div>

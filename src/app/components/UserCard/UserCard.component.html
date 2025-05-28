@@ -1,7 +1,19 @@
 <div class="flex w-full flex-wrap gap-3.5 justify-center items-center">
 
-  <app-skeleton />
-  @for (user of usuarios(); track user.id) {
+  <ng-container *ngIf="!CargandoDatos">
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+    <app-skeleton/>
+  </ng-container>
+
+  <ng-container *ngIf="CargandoDatos">
+
+    @for (user of usuarios(); track user.id) {
       <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg w-sm ">
         <div class="relative mx-auto w-36 rounded-full">
 
@@ -35,5 +47,7 @@
         </p>
 
       </div>
-  }
+    }
+
+  </ng-container>
 </div>

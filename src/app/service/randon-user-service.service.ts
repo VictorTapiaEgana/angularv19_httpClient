@@ -11,6 +11,7 @@ export class RandonUserServiceService {
 
   private http = inject(HttpClient)
   ListadoUsers = signal<RandomUserType[]>([])
+  cargandoSignal= signal<boolean>(false)
 
   constructor() {
     this.CargarUsersFromWeb(1)
@@ -18,6 +19,7 @@ export class RandonUserServiceService {
 
 
    CargarUsersFromWeb(pagina:number){
+    this.cargandoSignal.set(true)
 
     this.http.get<RandonUserResponse>(`${environment.API_URL}`,
                     {params:{
@@ -29,6 +31,10 @@ export class RandonUserServiceService {
                     const ArrayUSers = RandomUserMapper.ResponseUserConvert(resp.results)
                     this.ListadoUsers.set(ArrayUSers)
                   })
-   }
+
+    this.cargandoSignal.set(false)
+  }
+
+
 
 }
