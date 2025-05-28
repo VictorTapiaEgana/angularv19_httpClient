@@ -1,4 +1,4 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RandomUserType } from '../../interface/RandonUserInterface';
@@ -11,14 +11,11 @@ import { SkeletonComponent } from "../../UI/skeleton/skeleton.component";
   styleUrl: './UserCard.component.css',
 })
 
-export class UserCardComponent implements OnInit{
+export class UserCardComponent {
 
   usuarios = input.required<RandomUserType[]>()
 
   CargandoDatos=input.required<boolean>()
 
-    ngOnInit() {
-      console.log("CargandoDatos:", this.CargandoDatos());
 
-  }
 }

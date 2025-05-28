@@ -32,12 +32,9 @@ export class RandonUserServiceService {
                     const ArrayUSers = RandomUserMapper.ResponseUserConvert(resp.results)
                     this.ListadoUsers.set(ArrayUSers)
                     this.cargandoSignal.set(false)
-                    console.log("YA cargo los datos")
+
                   })
 
-
-  }
-
-
+   }
 
 }
