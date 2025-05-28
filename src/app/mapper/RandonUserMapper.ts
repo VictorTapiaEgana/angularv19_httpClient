@@ -14,7 +14,9 @@ export class RandomUserMapper{
         ciudad:item.location.city,
         pais:item.location.country,
         latitud:item.location.coordinates.latitude,
-        longitud:item.location.coordinates.longitude
+        longitud:item.location.coordinates.longitude,
+        codigoPais:item.nat
+
     }
 
   }

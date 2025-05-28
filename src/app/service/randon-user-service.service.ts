@@ -21,8 +21,9 @@ export class RandonUserServiceService {
 
     this.http.get<RandonUserResponse>(`${environment.API_URL}`,
                     {params:{
-                        results:100,
-                        nat:'es'
+                        results:10,
+                        page:1,
+                        // nat:'es'
                     }}
                   ).subscribe((resp)=>{
                     const ArrayUSers = RandomUserMapper.ResponseUserConvert(resp.results)

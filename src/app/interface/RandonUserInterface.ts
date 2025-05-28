@@ -10,6 +10,7 @@ export interface RandomUserType{
   pais:string;
   latitud:string;
   longitud:string;
+  codigoPais:string
 }
 
 
