@@ -1,17 +1,16 @@
 <div class="flex w-full flex-wrap gap-3.5 justify-center items-center">
 
-  <ng-container *ngIf="!CargandoDatos">
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
-    <app-skeleton/>
+  <ng-container *ngIf="CargandoDatos()">
+
+      <app-skeleton/><app-skeleton/>
+      <app-skeleton/><app-skeleton/>
+      <app-skeleton/><app-skeleton/>
+      <app-skeleton/><app-skeleton/>
+      <app-skeleton/><app-skeleton/>
+
   </ng-container>
 
-  <ng-container *ngIf="CargandoDatos">
+  <ng-container *ngIf="!CargandoDatos()">
 
     @for (user of usuarios(); track user.id) {
       <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg w-sm ">
@@ -24,6 +23,8 @@
           <img class="mx-auto h-auto w-full rounded-full border-gray-600 border-3 "
                 [src]="user.imagen"
                 [alt]="'Foto del usuario: ' + user.nombre"
+                height="34"
+                width="34"
           />
 
         </div>

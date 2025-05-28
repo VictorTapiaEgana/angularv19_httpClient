@@ -1,5 +1,6 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { BotonPrimarioComponent } from '../../UI/boton-primario/boton-primario.component';
+
 
 @Component({
   selector: 'app-paginacion',
@@ -9,5 +10,7 @@ import { BotonPrimarioComponent } from '../../UI/boton-primario/boton-primario.c
 })
 
 export class PaginacionComponent {
+
   IndiceSG = signal(1)
+
 }

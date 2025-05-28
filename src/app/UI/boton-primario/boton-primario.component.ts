@@ -13,7 +13,6 @@ export class BotonPrimarioComponent {
 
   indiceSignal = input.required<WritableSignal<number>>();
 
-
   label=input.required()
   accion=input.required()
 
@@ -33,14 +32,11 @@ export class BotonPrimarioComponent {
 
         }
 
-       // console.log(this.indiceSignal()())
-
         if (this.indiceSignal()() > 1){
             this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
         }
 
     }
-
 
   }
 

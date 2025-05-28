@@ -28,11 +28,14 @@ export class RandonUserServiceService {
                         // nat:'es'
                     }}
                   ).subscribe((resp)=>{
+
                     const ArrayUSers = RandomUserMapper.ResponseUserConvert(resp.results)
                     this.ListadoUsers.set(ArrayUSers)
+                    this.cargandoSignal.set(false)
+                    console.log("YA cargo los datos")
                   })
 
-    this.cargandoSignal.set(false)
+
   }
 
 
