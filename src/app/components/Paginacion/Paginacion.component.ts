@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { BotonPrimarioComponent } from '../../UI/boton-primario/boton-primario.component';
 
 @Component({
   selector: 'app-paginacion',
-  imports: [],
+  imports: [BotonPrimarioComponent],
   templateUrl: './Paginacion.component.html',
   styleUrl: './Paginacion.component.css',
 })

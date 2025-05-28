@@ -1,12 +1,12 @@
 <div class="flex w-full flex-wrap gap-3.5 justify-center items-center">
   @for (user of usuarios(); track user.id) {
-      <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg max-w-sm ">
+      <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg w-sm ">
         <div class="relative mx-auto w-36 rounded-full">
 
           <span [className]="cargarClase()">
           </span>
 
-          <img class="mx-auto h-auto w-full rounded-full"
+          <img class="mx-auto h-auto w-full rounded-full border-gray-600 border-3 "
                 [src]="user.imagen"
                 [alt]="'Foto del usuario: ' + user.nombre"
           />
@@ -18,12 +18,12 @@
         </h1>
 
         <h3 class="text-center text-gray-600">
-          ({{ user.email.slice(0,25) }})
+          ({{ user.email }})
         </h3>
 
         <div class="flex gap-2 justify-center">
           <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">
-            {{ user.direccion.slice(0,10) }} - <strong>{{ user.ciudad.slice(0,10) }}</strong>
+            {{ user.direccion.slice(0,20) }} - <strong>{{ user.ciudad }}</strong>
           </h3>
           <img [src]="'https://flagsapi.com/' + user.codigoPais + '/shiny/24.png'">
         </div>

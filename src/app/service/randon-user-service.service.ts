@@ -13,16 +13,16 @@ export class RandonUserServiceService {
   ListadoUsers = signal<RandomUserType[]>([])
 
   constructor() {
-    this.CargarUsersFromWeb()
+    this.CargarUsersFromWeb(1)
    }
 
 
-   CargarUsersFromWeb(){
+   CargarUsersFromWeb(pagina:number){
 
     this.http.get<RandonUserResponse>(`${environment.API_URL}`,
                     {params:{
                         results:10,
-                        page:1,
+                        page:pagina,
                         // nat:'es'
                     }}
                   ).subscribe((resp)=>{
