@@ -1,6 +1,10 @@
 import { RandonUserResponse, RandomUserType, Data } from './../interface/RandonUserInterface';
 export class RandomUserMapper{
 
+  static generarRandom(){
+    return (Math.floor(Math.random() * 2 ) + 1 )
+  }
+
   static ResponseMapper(item:Data):RandomUserType{
 
     return{
@@ -15,11 +19,13 @@ export class RandomUserMapper{
         pais:item.location.country,
         latitud:item.location.coordinates.latitude,
         longitud:item.location.coordinates.longitude,
-        codigoPais:item.nat
+        codigoPais:item.nat,
+        estado:RandomUserMapper.generarRandom()
 
     }
 
   }
+
 
   static ResponseUserConvert(userlist:Data[]):RandomUserType[]{
     return userlist.map(this.ResponseMapper)

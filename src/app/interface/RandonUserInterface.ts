@@ -11,6 +11,7 @@ export interface RandomUserType{
   latitud:string;
   longitud:string;
   codigoPais:string
+  estado:number
 }
 
 

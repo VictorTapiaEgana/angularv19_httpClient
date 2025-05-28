@@ -32,8 +32,12 @@ export class BotonPrimarioComponent {
           }
 
         }
-        console.log(this.indiceSignal()())
-        this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
+
+       // console.log(this.indiceSignal()())
+
+        if (this.indiceSignal()() > 1){
+            this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
+        }
 
     }
 
