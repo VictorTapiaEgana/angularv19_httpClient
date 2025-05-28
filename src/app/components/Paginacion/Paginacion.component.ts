@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { BotonPrimarioComponent } from '../../UI/boton-primario/boton-primario.component';
 
 @Component({
@@ -7,4 +7,7 @@ import { BotonPrimarioComponent } from '../../UI/boton-primario/boton-primario.c
   templateUrl: './Paginacion.component.html',
   styleUrl: './Paginacion.component.css',
 })
-export class PaginacionComponent { }
+
+export class PaginacionComponent {
+  IndiceSG = signal(1)
+}

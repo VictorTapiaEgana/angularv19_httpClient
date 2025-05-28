@@ -2,9 +2,17 @@
 
   <div class="">
 
-    <boton-primario label="Atras"/>
-    <span class="border-1 border-gray-200 p-2 mx-5">1</span>
-    <boton-primario label="Adelante"/>
+    <boton-primario label="Adelante"
+                    [indiceSignal]="IndiceSG"
+                    accion="atras"/>
+
+    <span class="border-1 border-gray-200 p-2 mx-5">
+      {{IndiceSG()}}
+    </span>
+
+    <boton-primario label="Adelante"
+                    [indiceSignal]="IndiceSG"
+                    accion="adelante"/>
 
   </div>
 

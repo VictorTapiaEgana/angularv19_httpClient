@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, Input, input, WritableSignal } from '@angular/core';
+import { RandonUserServiceService } from '../../service/randon-user-service.service';
 
 @Component({
   selector: 'boton-primario',
@@ -8,5 +9,35 @@ import { Component, input } from '@angular/core';
 })
 export class BotonPrimarioComponent {
 
+  RandomService =  inject(RandonUserServiceService)
+
+  indiceSignal = input.required<WritableSignal<number>>();
+
+
   label=input.required()
+  accion=input.required()
+
+  paginacion(){
+
+    if ((this.indiceSignal()() >= 1)){
+
+        if (this.accion() === "adelante"){
+
+          this.indiceSignal().update(current => current + 1)
+
+        } else {
+
+          if (this.indiceSignal()() > 1){
+            this.indiceSignal().update(current => current - 1)
+          }
+
+        }
+        console.log(this.indiceSignal()())
+        this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
+
+    }
+
+
+  }
+
 }
