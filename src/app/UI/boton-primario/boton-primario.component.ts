@@ -23,17 +23,15 @@ export class BotonPrimarioComponent {
         if (this.accion() === "adelante"){
 
           this.indiceSignal().update(current => current + 1)
+          this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
 
         } else {
 
           if (this.indiceSignal()() > 1){
             this.indiceSignal().update(current => current - 1)
+            this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
           }
 
-        }
-
-        if (this.indiceSignal()() > 1){
-            this.RandomService.CargarUsersFromWeb(this.indiceSignal()())
         }
 
     }
