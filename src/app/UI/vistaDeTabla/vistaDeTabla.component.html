@@ -12,7 +12,9 @@
       @for (item of usuarios(); track $index) {
         <tr>
           <td class="px-2 py-2 flex justify-center">
-            <img [src]="item.imagen" width="32" height="32" class="rounded-4xl border-2 border-green-600 text-center"/>
+            <img [src]="item.imagen" width="32" height="32" [class]="item.estado === 1
+                                                            ? 'rounded-4xl border-3 border-green-600 text-center'
+                                                            : 'rounded-4xl border-3 border-red-600 text-center'"/>
           </td>
           <td class="px-2 py-2 truncate overflow-hidden whitespace-nowrap max-w-[100px]">{{ item.nombre }}</td>
           <td class="px-2 py-2 truncate overflow-hidden whitespace-nowrap max-w-[100px]">{{ item.email }}</td>
