@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, OnInit, WritableSignal } from '@angular/core';
 
 @Component({
   selector: 'app-card-display',
@@ -6,4 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './card-display.component.html',
   styleUrl: './card-display.component.css',
 })
-export class CardDisplayComponent { }
+export class CardDisplayComponent implements OnInit{
+
+  TipoDeVista = input.required<WritableSignal<string>>()
+
+
+  ngOnInit(){
+    console.log("Vista inicil: ", this.TipoDeVista()())
+  }
+
+ }

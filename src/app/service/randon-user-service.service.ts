@@ -23,7 +23,7 @@ export class RandonUserServiceService {
 
     this.http.get<RandonUserResponse>(`${environment.API_URL}`,
                     {params:{
-                        results:10,
+                        results:20,
                         page:pagina,
                         // nat:'es'
                     }}

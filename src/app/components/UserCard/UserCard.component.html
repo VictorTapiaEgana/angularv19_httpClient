@@ -1,17 +1,16 @@
-<div class="flex w-full flex-wrap gap-3.5 justify-center items-center">
+<div class="flex w-full max-w-full flex-wrap gap-3.5 justify-center items-center">
 
-  <ng-container *ngIf="CargandoDatos()">
-    <div class="w-full flex flex-wrap gap-3.5 justify-center items-center px-4 mx-4">
-      <app-skeleton/> <app-skeleton/>
-      <app-skeleton/> <app-skeleton/>
-      <app-skeleton/> <app-skeleton/>
-      <app-skeleton/> <app-skeleton/>
-      <app-skeleton/> <app-skeleton/>
-    </div>
+  <!-- CARAGR VISTA DE GALERIA -->
+  <ng-container *ngIf="TipoDeVista() === 'galeria'">
+    <!-- CARGAR ESKELETO GALERIA-->
+    <ng-container *ngIf="CargandoDatos()">
+      <app-skeleton-cards/>
+    </ng-container>
 
-  </ng-container>
-
-  <ng-container *ngIf="!CargandoDatos()">
+    <!-- CARAGAR LOS DAT0S -->
+     <!-- ******************************************************************************  -->
+      <!-- FALTA COMPONETIZAR ESTOS DATOS -->
+    <ng-container *ngIf="!CargandoDatos()">
 
     @for (user of usuarios(); track user.id) {
       <div class="rounded-lg border bg-white px-4 pt-8 pb-10 shadow-lg w-sm">
@@ -40,7 +39,7 @@
 
         <div class="flex gap-2 justify-center">
           <h3 class="font-lg text-semibold text-center leading-6 text-gray-600">
-            {{ user.direccion.slice(0,20) }} - <strong>{{ user.ciudad }}</strong>
+            {{ user.direccion.slice(0,20) }} - <strong>{{ user.ciudad.slice(0,18) }}</strong>
           </h3>
           <img [src]="'https://flagsapi.com/' + user.codigoPais + '/shiny/24.png'">
         </div>
@@ -51,5 +50,23 @@
       </div>
     }
 
+    </ng-container>
+
   </ng-container>
+
+<!-- CARGAR VISTA DE TABLA -->
+<ng-container *ngIf="TipoDeVista() != 'galeria'">
+  <!-- CARGAR ESKELETO DE TABLA -->
+    <ng-container *ngIf="CargandoDatos()">
+      <app-skeleton-tabla />
+    </ng-container>
+
+    <!-- CARGAR DATOS DE LA TABLA -->
+    <ng-container *ngIf="!CargandoDatos()">
+      <app-vista-de-tabla [usuarios]="usuarios()"/>
+    </ng-container>
+
+</ng-container>
+
+
 </div>

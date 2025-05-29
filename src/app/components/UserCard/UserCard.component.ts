@@ -2,11 +2,13 @@ import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RandomUserType } from '../../interface/RandonUserInterface';
-import { SkeletonComponent } from "../../UI/skeleton/skeleton.component";
+import { SkeletonCardsComponent } from "../../UI/skeletonCards/skeletonCards.component";
+import { VistaDeTablaComponent } from "../../UI/vistaDeTabla/vistaDeTabla.component";
+import { SkeletonTablaComponent } from "../../UI/skeleton-tabla/skeleton-tabla.component";
 
 @Component({
   selector: 'app-user-card',
-  imports: [SkeletonComponent,CommonModule],
+  imports: [CommonModule, SkeletonCardsComponent, VistaDeTablaComponent, SkeletonTablaComponent],
   templateUrl: './UserCard.component.html',
   styleUrl: './UserCard.component.css',
 })
@@ -14,8 +16,8 @@ import { SkeletonComponent } from "../../UI/skeleton/skeleton.component";
 export class UserCardComponent {
 
   usuarios = input.required<RandomUserType[]>()
+  TipoDeVista= input.required()
 
   CargandoDatos=input.required<boolean>()
-
 
 }
