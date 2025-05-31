@@ -7,6 +7,7 @@ Lectura de datos desde https://randomuser.me/,
  * Uso de Skeleton
  * Vistas de Lista o Cards
  * Llamados a https://flagsapi.com/, para renderizado de banderas.
+ * Genera Archivo PDF con tabla de usuarios
 
 
 Deploy en Vercel
