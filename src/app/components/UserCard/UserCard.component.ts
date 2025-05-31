@@ -16,8 +16,7 @@ import { SkeletonTablaComponent } from "../../UI/skeleton-tabla/skeleton-tabla.c
 export class UserCardComponent {
 
   usuarios = input.required<RandomUserType[]>()
-  TipoDeVista= input.required()
-
+  TipoDeVista= input.required<string>()
   CargandoDatos=input.required<boolean>()
 
 }

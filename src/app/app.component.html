@@ -4,12 +4,15 @@
 
   <app-paginacion/>
 
-  <app-card-display [TipoDeVista]="TipoDeVista"/>
+  <section class="flex justify-around align-center items-center">
+      <app-boton-pdf [TipoDeVista]="TipoDeVista()"
+                     [usuarios]= "RandonUserService.ListadoUsers()"/>
+      <app-card-display [TipoDeVista]="TipoDeVista"/>
+  </section>
 
-  <app-user-card [usuarios]="RandonUserService.ListadoUsers()"
+  <app-user-card [usuarios]= "RandonUserService.ListadoUsers()"
                  [CargandoDatos]="RandonUserService.cargandoSignal()"
                  [TipoDeVista]="TipoDeVista()"
                  />
-
 
 </div>
